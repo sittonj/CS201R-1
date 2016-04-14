@@ -4,9 +4,11 @@
 #include <string>
 using namespace std;
 
+int findDogBreed(string dogBreeds[], const string& searchFor, int listSize, int index);
+
 int main()
 {
-    string dogBreeds = {
+	string dogBreeds[] = {
         "corgi", "labrador", "bulldog", "beagle", "poodle", "boxer"
         };
 
@@ -14,14 +16,8 @@ int main()
     cout << "Search for what term? ";
     cin >> searchFor;
 
-    int foundIndex = -1;
-    for ( int i = 0; i < 6; i++ )
-    {
-        if ( dogBreeds[i] == searchFor )
-        {
-            foundIndex = i;
-        }
-    }
+	int foundIndex = -1;
+	foundIndex = findDogBreed(dogBreeds, searchFor, 6, 0);
 
     if ( foundIndex == -1 )
     {
@@ -33,4 +29,18 @@ int main()
     }
 
     return 0;
+}
+	
+int findDogBreed(string dogBreeds[], const string& searchFor, int listSize, int index)
+{
+	if (listSize == 0)
+	{
+		return -1;
+	}
+	if (dogBreeds[index] == searchFor)
+	{
+		return index;
+	}
+
+	return findDogBreed(dogBreeds, searchFor, listSize-1, index+1);
 }
