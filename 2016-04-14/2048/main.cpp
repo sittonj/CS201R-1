@@ -7,10 +7,10 @@ void InitializeGrid( int grid[5][5] );
 void DrawGrid( int grid[5][5] );
 void ClearScreen();
 
-void SlideUp();
-void SlideDown();
-void SlideLeft();
-void SlideRight();
+void SlideUp( int grid[5][5] );
+void SlideDown( int grid[5][5] );
+void SlideLeft( int grid[5][5] );
+void SlideRight( int grid[5][5] );
 
 int main()
 {
@@ -33,19 +33,19 @@ int main()
         switch( choice )
         {
             case 'w':
-                SlideUp();
+                SlideUp( grid );
             break;
 
             case 's':
-                SlideDown();
+                SlideDown( grid );
             break;
 
             case 'a':
-                SlideLeft();
+                SlideLeft( grid );
             break;
 
             case 'd':
-                SlideRight();
+                SlideRight( grid );
             break;
         }
     }
@@ -70,7 +70,7 @@ void DrawGrid( int grid[5][5] )
     {
         for ( int x = 0; x < 5; x++ )
         {
-            cout << grid[x][y] < " ";
+            cout << grid[x][y] << " ";
         }
         cout << endl;
     }
@@ -86,18 +86,18 @@ void ClearScreen()
 }
 
 
-void SlideUp()
+void SlideUp( int grid[5][5] )
 {
 }
 
-void SlideDown()
+void SlideDown( int grid[5][5] )
 {
 }
 
-void SlideLeft()
+void SlideLeft( int grid[5][5] )
 {
 }
 
-void SlideRight()
+void SlideRight( int grid[5][5] )
 {
 }

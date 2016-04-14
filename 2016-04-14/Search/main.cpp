@@ -4,9 +4,18 @@
 #include <string>
 using namespace std;
 
+int Find( string myArray[], int arraySize, const string& searchFor, int index )
+{
+	if ( index == arraySize )
+		return -1;
+	if ( myArray[index] == searchFor )
+		return index;
+	return Find( myArray, arraySize, searchFor, index+1 );
+}
+
 int main()
 {
-    string dogBreeds = {
+    string dogBreeds[] = {
         "corgi", "labrador", "bulldog", "beagle", "poodle", "boxer"
         };
 
@@ -14,14 +23,9 @@ int main()
     cout << "Search for what term? ";
     cin >> searchFor;
 
-    int foundIndex = -1;
-    for ( int i = 0; i < 6; i++ )
-    {
-        if ( dogBreeds[i] == searchFor )
-        {
-            foundIndex = i;
-        }
-    }
+//    int foundIndex = -1;
+
+	int foundIndex = Find( dogBreeds, 6, searchFor, 0 );
 
     if ( foundIndex == -1 )
     {
